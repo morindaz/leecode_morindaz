@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 '''
 You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.
 
@@ -22,7 +23,7 @@ class List(object):
         self.cur_node = None
     def add(self,data):
         node = ListNode(data)
-        
+
 class Solution(object):
     def addTwoNumbers(self, l1, l2):
         """

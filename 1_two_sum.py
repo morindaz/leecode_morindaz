@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 '''
 1. Two Sum
 Given an array of integers, return indices of the two numbers such that they add up to a specific target.
@@ -30,3 +31,9 @@ class Solution(object):
 solution = Solution()
 result = solution.twoSum([3,2,4],6)
 print(result)
+
+'''
+解题思路：
+1、target-nums[i]计算得到的数值在数组中
+2、该数值的下标不与nums[i]的下标为同一个，为了避免将一个数字计算两遍的情况
+'''
