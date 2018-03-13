@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 '''
 Given a string, find the length of the longest substring without repeating characters.
 
@@ -36,3 +37,12 @@ class Solution(object):
 solution = Solution()
 result = solution.lengthOfLongestSubstring("abcabcbb")
 print(result)
+
+
+'''
+解题思路：
+1、采用两个指针，头指针和尾指针，尾指针先移动。头指针和尾指针之间的长度为比对字符串。
+2、如果尾指针所指的字符不在比对字符串中，则长度增加1，尾指针向后移动，得到最长长度
+3、如果尾指针所指的字符在比对字符串中，则头指针向后移动，得到最长长度
+
+'''
