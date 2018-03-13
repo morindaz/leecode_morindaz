@@ -44,6 +44,7 @@ result = solution.findMedianSortedArrays([1,2],[3,4])
 print (result)
 
 '''
+解题思路：
 这题要求是run time complexity should be O(log (m+n))
 这边采用了将两个数组拼接 num1.extend方法
 之后将数组排序num1.sort()方法
