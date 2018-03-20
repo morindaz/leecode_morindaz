@@ -16,8 +16,8 @@ class Solution:
         max = 0
         head = 0
         tail = len(height)-1
-        while(head<=tail and head<len(height)):
-            while(tail<len(height)):
+        while(head<=tail):
+            while(tail>head and tail>0):
                 volume = min(height[head],height[tail])*(tail-head)
                 if volume>max:
                     max = volume
@@ -27,7 +27,7 @@ class Solution:
         return max
 
 solutoin = Solution()
-result = solutoin.maxArea([1, 3, 2])
+result = solutoin.maxArea([2,3,4,5,18,17,6])
 print(result)
 
 '''
