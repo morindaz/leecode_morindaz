@@ -21,16 +21,16 @@ class Solution(object):
         :rtype: List[List[int]]
         """
         result = []
-        if len(nums)<3:
+        if len(nums) < 3:
             return result
-        elif len(nums)==3 and sum(nums)==0:
+        elif len(nums) == 3 and sum(nums) == 0:
             return [nums]
 
         nums.sort()
         for i in range(len(nums)):
             for j in range(i+1,len(nums)):
                 re = []
-                sum_ne  = -(nums[i]+nums[j])
+                sum_ne  = -(nums[i] + nums[j])
                 if sum_ne in (nums[j+1:]):
                     re.append(nums[i])
                     re.append(nums[j])
@@ -46,12 +46,12 @@ class Solution(object):
         return result
 
 
-
-# a = [2,3,4,5,2]
-# print(a.index(5))
-solution = Solution()
-result = solution.threeSum([-1,0,1,2,-1,-4])
-print(result)
+if __name__ == '__main__':
+    # a = [2,3,4,5,2]
+    # print(a.index(5))
+    solution = Solution()
+    result = solution.threeSum([-1,0,1,2,-1,-4])
+    print(result)
 
 
 '''

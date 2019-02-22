@@ -17,18 +17,19 @@ class Solution:
         head = 0
         tail = len(height)-1
         while(head<=tail):
-            volume = min(height[head],height[tail])*(tail-head)
-            if volume>max:
+            volume = min(height[head], height[tail]) * (tail - head)
+            if volume > max:
                 max = volume
-            if height[tail]>height[head]:
-                head+=1
+            if height[tail] > height[head]:
+                head += 1
             else:
-                tail-=1
+                tail -= 1
         return max
 
-solutoin = Solution()
-result = solutoin.maxArea([2,3,4,5,18,17,6])
-print(result)
+if __name__ == '__main__':
+    solutoin = Solution()
+    result = solutoin.maxArea([2,3,4,5,18,17,6])
+    print(result)
 
 '''
 这里主要遇到了超时问题,如果选用两层循环的话，会超时

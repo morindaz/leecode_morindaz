@@ -27,15 +27,15 @@ class Solution:
         :type str: str
         :rtype: int
         """
-        if str=="":
+        if str == "":
             return 0
         # print(str)
-        count =0
+        count = 0
         result = 0
         flag = 1
         start = 0
-        while(start<len(str) and str[start]==' '):
-           start+=1
+        while(start < len(str) and str[start] == ' '):
+           start += 1
         if (str[start] == "-"):
             flag = -1
             start += 1
@@ -44,30 +44,31 @@ class Solution:
             start+=1
 
         for i in range(start,len(str)):
-            if str[i]<"0" or str[i]>"9":
+            if str[i] < "0" or str[i] > "9":
                 break
             if ord(str[i]) >= 47 and ord(str[i]) <= 58:
                 result = result * 10 + int(str[i])
             else:
                 break
-        result *=flag
-        if count>1:
+        result *= flag
+        if count > 1:
             return 0
-        elif result<-2147483648:
+        elif result < -2147483648:
             return -2147483648
-        elif result>2147483647:
+        elif result > 2147483647:
             return 2147483647
         return result
 
-solution = Solution()
-a = "  ss   ss"
-print(a)
-a.strip()
-print(a)
-b = a.strip()
-print(b)
-result = solution.myAtoi("      010")
-print(result)
+if __name__ == '__main__':
+    solution = Solution()
+    a = "  ss   ss"
+    print(a)
+    a.strip()
+    print(a)
+    b = a.strip()
+    print(b)
+    result = solution.myAtoi("      010")
+    print(result)
 
 
 '''
