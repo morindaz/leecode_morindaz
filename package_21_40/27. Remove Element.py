@@ -33,7 +33,7 @@ class Solution(object):
         """
         index = 0
         for i in range(len(nums)):
-            if nums[i] !=val:
+            if nums[i] != val:
                 nums[index] = nums[i]
                 index += 1
         return nums[:index]
