@@ -14,7 +14,7 @@ A solution set is:
 '''
 
 
-class Solution(object):
+class Solution2(object):
     def threeSum(self, nums):
         """
         :type nums: List[int]
@@ -46,11 +46,45 @@ class Solution(object):
         return result
 
 
+class Solution:
+    def threeSum(self, nums):
+        nums.sort()
+        result = []
+        for i in range(len(nums)-2):
+            left = i + 1
+            right = len(nums)-1
+            if i >= 1 and nums[i] == nums[i-1]:
+                pass
+            else:
+                while left < right:
+                    tmp = nums[i] + nums[left] + nums[right]
+                    if tmp == 0 :
+                        result.append([nums[i], nums[left] , nums[right]])
+                        left += 1
+                        right -= 1
+                        # while nums[left] == nums[left-1]:
+                        #     left += 1
+                        # while nums[right] == nums[right+1]:
+                        #     right -= 1
+
+                    if tmp < 0:
+                        left += 1
+                    if tmp > 0:
+                        right -= 1
+        final = []
+        for res in result:
+            if res not in final:
+                final.append(res)
+
+        return final
+
+
+
 if __name__ == '__main__':
     # a = [2,3,4,5,2]
     # print(a.index(5))
     solution = Solution()
-    result = solution.threeSum([-1,0,1,2,-1,-4])
+    result = solution.threeSum([-2,0,3,-1,4,0,3,4,1,1,1,-3,-5,4,0])
     print(result)
 
 
