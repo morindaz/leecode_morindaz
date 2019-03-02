@@ -1,0 +1,2 @@
+# leecode_morindaz
+leetcode
