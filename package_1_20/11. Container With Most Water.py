@@ -1,13 +1,15 @@
 # -*- coding: utf-8 -*-
 
 '''
-Given n non-negative integers a1, a2, ..., an, where each represents a point at coordinate (i, ai). n vertical lines are drawn such that the two endpoints of line i is at (i, ai) and (i, 0). Find two lines, which together with x-axis forms a container, such that the container contains the most water.
+Given n non-negative integers a1, a2, ..., an, where each represents a point at coordinate (i, ai).
+n vertical lines are drawn such that the two endpoints of line i is at (i, ai) and (i, 0).
+Find two lines, which together with x-axis forms a container, such that the container contains the most water.
 
 Note: You may not slant the container and n is at least 2.
 '''
 
 
-class Solution:
+class Solution2:
     def maxArea(self, height):
         """
         :type height: List[int]
@@ -26,9 +28,31 @@ class Solution:
                 tail -= 1
         return max
 
+
+class Solution(object):
+    def maxArea(self, height):
+        """
+        :type height: List[int]
+        :rtype: int
+        """
+        head = 0
+        tail = len(height) - 1
+        best_size = (tail - head) * min(height[head], height[tail])
+        while(head < tail):
+            if height[head] > height[tail]:
+                tail -= 1
+            else:
+                head += 1
+            new_size = (tail - head) * min(height[head], height[tail])
+            if new_size > best_size:
+                best_size = new_size
+        return best_size
+
+
+
 if __name__ == '__main__':
     solutoin = Solution()
-    result = solutoin.maxArea([2,3,4,5,18,17,6])
+    result = solutoin.maxArea([1,2,4,3])
     print(result)
 
 '''
@@ -40,4 +64,6 @@ if __name__ == '__main__':
 直到碰到头指针为止。
 第三种方式也就是能够accept的方法，则比较聪明。
 从两端开始，哪边高，那么另外一边移动，直到两个指针碰到为止
+[1,2,4,3] 4
+[1,3,2,5,25,24,5] 24
 '''

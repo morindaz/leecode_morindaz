@@ -26,15 +26,20 @@ class Solution(object):
         :type needle: str
         :rtype: int
         """
+        flag = 0
         if needle == "" or needle == haystack:
             return 0
         else:
-            if needle not in haystack:
+            # if needle not in haystack:
+            #     return -1
+            # else:
+            for i in range(len(haystack) - len(needle)+1):
+                if haystack[i: i+len(needle)] == needle:
+                    flag = 1
+                    return i
+            if flag == 0:
                 return -1
-            else:
-                for i in range(len(haystack) - len(needle)+1):
-                    if haystack[i: i+len(needle)] == needle:
-                        return i
+
 
 if __name__ == '__main__':
     solution = Solution().strStr("mississippi", "pi")
