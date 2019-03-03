@@ -62,11 +62,6 @@ class Solution:
                         result.append([nums[i], nums[left] , nums[right]])
                         left += 1
                         right -= 1
-                        # while nums[left] == nums[left-1]:
-                        #     left += 1
-                        # while nums[right] == nums[right+1]:
-                        #     right -= 1
-
                     if tmp < 0:
                         left += 1
                     if tmp > 0:
