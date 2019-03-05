@@ -13,28 +13,25 @@ Note:
 You may assume k is always valid, 1 ≤ k ≤ array's length.
 """
 
-
 class Solution(object):
     def quickSort(self, left, right, arr):
         tmp_left = left
         tmp_right = right
         if tmp_left >= tmp_right:
-            return arr
+            return
         flag = arr[tmp_left]
         while(tmp_left < tmp_right):
-            while(arr[tmp_left] >= flag and tmp_left < tmp_right):
+            while(arr[tmp_right] >= flag and tmp_left < tmp_right):
                 tmp_right -= 1
             while(arr[tmp_left] <= flag and tmp_left < tmp_right):
-                left += 1
+                tmp_left += 1
             tmp = arr[tmp_left]
             arr[tmp_left] = arr[tmp_right]
             arr[tmp_right] = tmp
-
-        # tmp = arr[left]
         arr[left] = arr[tmp_left]
         arr[tmp_left] = flag
         self.quickSort(0,tmp_left-1, arr)
-        self.quickSort(tmp_left + 1,right, arr)
+        self.quickSort(tmp_left + 1, right, arr)
 
 
 
@@ -44,8 +41,11 @@ class Solution(object):
         :type k: int
         :rtype: int
         """
-        sort = self.quickSort(0, len(nums)-1, nums)
-        print("ss")
+        # self.quickSort(0, len(nums)-1, nums)
+        nums.sort()
+        print(nums)
+        return nums[-k]
 
 if __name__ == '__main__':
-    solution = Solution().findKthLargest([8,3,1,5,2] ,4)
+    solution = Solution().findKthLargest( [3,2,3,1,2,4,5,5,6] ,4)
+    print(solution)
