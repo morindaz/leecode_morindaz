@@ -16,24 +16,25 @@ You may assume k is always valid, 1 ≤ k ≤ array's length.
 
 class Solution(object):
     def quickSort(self, left, right, arr):
-        if left >= right:
+        tmp_left = left
+        tmp_right = right
+        if tmp_left >= tmp_right:
             return arr
-        flag = arr[left]
-        while(left < right):
-            while(arr[right] >= flag and left < right):
-                right -= 1
-            while(arr[left] <= flag and left < right):
+        flag = arr[tmp_left]
+        while(tmp_left < tmp_right):
+            while(arr[tmp_left] >= flag and tmp_left < tmp_right):
+                tmp_right -= 1
+            while(arr[tmp_left] <= flag and tmp_left < tmp_right):
                 left += 1
-            tmp = arr[left]
-            arr[left] = arr[right]
-            arr[right] = tmp
+            tmp = arr[tmp_left]
+            arr[tmp_left] = arr[tmp_right]
+            arr[tmp_right] = tmp
 
         # tmp = arr[left]
-        arr[0] = arr[left]
-        arr[left] = flag
-        arr[left] = tmp
-        self.quickSort(0,left-1, arr[:left])
-        self.quickSort(left + 1,len(arr)-1, arr[left+1:])
+        arr[left] = arr[tmp_left]
+        arr[tmp_left] = flag
+        self.quickSort(0,tmp_left-1, arr)
+        self.quickSort(tmp_left + 1,right, arr)
 
 
 
@@ -47,4 +48,4 @@ class Solution(object):
         print("ss")
 
 if __name__ == '__main__':
-    solution = Solution().findKthLargest([3,2,3,1,2,4,5,5,6] ,4)
+    solution = Solution().findKthLargest([8,3,1,5,2] ,4)
