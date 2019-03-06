@@ -17,9 +17,9 @@ class Solution(object):
     def quickSort(self, left, right, arr):
         tmp_left = left
         tmp_right = right
+        flag = arr[tmp_left]
         if tmp_left >= tmp_right:
             return
-        flag = arr[tmp_left]
         while(tmp_left < tmp_right):
             while(arr[tmp_right] >= flag and tmp_left < tmp_right):
                 tmp_right -= 1
@@ -30,7 +30,7 @@ class Solution(object):
             arr[tmp_right] = tmp
         arr[left] = arr[tmp_left]
         arr[tmp_left] = flag
-        self.quickSort(0,tmp_left-1, arr)
+        self.quickSort(left,tmp_left-1, arr)
         self.quickSort(tmp_left + 1, right, arr)
 
 
@@ -41,8 +41,8 @@ class Solution(object):
         :type k: int
         :rtype: int
         """
-        # self.quickSort(0, len(nums)-1, nums)
-        nums.sort()
+        self.quickSort(0, len(nums)-1, nums)
+        # nums.sort()
         print(nums)
         return nums[-k]
 
