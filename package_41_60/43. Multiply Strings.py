@@ -20,6 +20,7 @@ You must not use any built-in BigInteger library or convert the inputs to intege
 
 
 def change_value(self, str_value):
+    pass
 
 
 class Solution(object):
