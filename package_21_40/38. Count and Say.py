@@ -55,12 +55,6 @@ class Solution(object):
         result += tmp
         return result
 
-
-
-
-
-
-
 if __name__ == '__main__':
     solution = Solution().countAndSay(4)
     print(solution)
