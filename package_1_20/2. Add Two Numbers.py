@@ -22,11 +22,11 @@ class ListNode(object):
         self.next = None
 
 
-class List(object):
-    def __init__(self):
-        self.cur_node = None
-    def add(self,data):
-        node = ListNode(data)
+# class List(object):
+#     def __init__(self):
+#         self.cur_node = None
+#     def add(self,data):
+#         node = ListNode(data)
 
 class Solution(object):
     def addTwoNumbers(self, l1, l2):
