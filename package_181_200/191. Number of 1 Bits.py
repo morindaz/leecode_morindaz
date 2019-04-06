@@ -42,3 +42,9 @@ class Solution(object):
 
 solution = Solution().hammingWeight(11111111111111111111111111111101)
 print(solution)
+
+"""
+位运算：统计1的位数
+思路一：利用
+思路二：通过同时n & n-1 消去最低位的1
+"""

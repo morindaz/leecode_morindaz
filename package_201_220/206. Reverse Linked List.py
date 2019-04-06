@@ -34,6 +34,16 @@ class Solution(object):
             pre = cur
         return cur
 
+    def reverseList_bst(self, head):
+        """
+        :type head: ListNode
+        :rtype: ListNode
+        """
+        cur, prev = head, None
+        while cur:
+            cur.next, prev, cur = prev, cur, cur.next
+        return prev
+
 
 if __name__ == '__main__':
     node1 = ListNode(5)
@@ -50,3 +60,10 @@ if __name__ == '__main__':
     while solution!= None:
         print(solution.val)
         solution = solution.next
+
+
+"""
+链表套装：
+206、24、141、142、25
+
+"""
