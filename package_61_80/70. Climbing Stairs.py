@@ -49,3 +49,7 @@ if __name__ == "__main__":
     solution = Solution().climbStairs_su(2)
     print(solution)
     print("success")
+
+"""
+经典爬楼梯动态规划采用类似于裴伯纳斯的思维，可以通过递推的方法
+"""
