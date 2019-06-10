@@ -46,6 +46,11 @@ class Solution(object):
         return dp[m][n]
 
 
+    def minDistance1(self, word1, word2):
+        pass
+
+
+
 
 if __name__ == '__main__':
     solution = Solution().minDistance("intentions","execution")
