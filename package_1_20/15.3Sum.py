@@ -15,8 +15,32 @@ A solution set is:
 
 
 class Solution2(object):
+    def threeSum2(self, nums):
+        """
+        用map或者set的方式
+        :param nums:
+        :return:
+        """
+        if len(nums) < 3:
+            return []
+        nums.sort()
+        res = set()
+        for i,v in enumerate(nums[:-2]):
+            if i >=1 and v == nums[i-1]:
+                continue
+            d = {}
+            for x in nums[i+1:]:
+                if x not in d:
+                    d[-v-x] = 1
+                else:
+                    res.add((v, -v-x, x))
+        return list(map(list, res))
+
+
+
     def threeSum(self, nums):
         """
+        思路是两重循环
         :type nums: List[int]
         :rtype: List[List[int]]
         """
@@ -48,6 +72,11 @@ class Solution2(object):
 
 class Solution:
     def threeSum(self, nums):
+        """
+        先排序，然后用三个指针
+        :param nums:
+        :return:
+        """
         nums.sort()
         result = []
         for i in range(len(nums)-2):
@@ -70,8 +99,28 @@ class Solution:
         for res in result:
             if res not in final:
                 final.append(res)
-
         return final
+
+    def threeSum2(self, nums):
+        res = []
+        nums.sort()
+        for i in range(len(nums) - 2):
+            if i > 0  and nums[i] == nums[i-1]:
+                continue
+            l, r = i + 1, len(nums) -1
+            while l < r:
+                s = nums[i] + nums[l] + nums[r]
+                if s < 0 : l += 1
+                elif s > 0 : r -= 1
+                else:
+                    res.append((nums[i], nums[l] ,nums[r]))
+                    while l < r and nums[l] == nums[l+1]:
+                        l += 1
+                    while l < r and nums[r] == nums[r-1]:
+                        r -= 1
+                    l += 1
+                    r -= 1
+        return list(map(list, res))
 
 
 
@@ -79,7 +128,8 @@ if __name__ == '__main__':
     # a = [2,3,4,5,2]
     # print(a.index(5))
     solution = Solution()
-    result = solution.threeSum([-2,0,3,-1,4,0,3,4,1,1,1,-3,-5,4,0])
+    # result = solution.threeSum2([1,2,-3])
+    result = solution.threeSum2([-2,0,3,-1,4,0,3,4,1,1,1,-3,-5,4,0])
     print(result)
 
 
