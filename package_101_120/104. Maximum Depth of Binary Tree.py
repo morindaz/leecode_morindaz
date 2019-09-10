@@ -1,28 +1,20 @@
-# -*- coding: utf-8 -*-
-# @Time    : 2019/9/10
-# @Author  : morindaz
-# @FileName: 104..py
-# @explanation: This file is for:
 """
-给定一个二叉树，找出其最大深度。
+Given a binary tree, find its maximum depth.
 
-二叉树的深度为根节点到最远叶子节点的最长路径上的节点数。
+The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.
 
-说明: 叶子节点是指没有子节点的节点。
+Note: A leaf is a node with no children.
 
-示例：
-给定二叉树 [3,9,20,null,null,15,7]，
+Example:
+
+Given binary tree [3,9,20,null,null,15,7],
 
     3
    / \
   9  20
     /  \
    15   7
-返回它的最大深度 3 。
-
-来源：力扣（LeetCode）
-链接：https://leetcode-cn.com/problems/maximum-depth-of-binary-tree
-著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+return its depth = 3.
 """
 
 
@@ -39,5 +31,10 @@ class Solution(object):
         :type root: TreeNode
         :rtype: int
         """
+        if not root:
+            return 0
+        return 1 + max(self.maxDepth(root.left), self.maxDepth(root.right))
 
 
+if __name__ == '__main__':
+    solution = Solution()

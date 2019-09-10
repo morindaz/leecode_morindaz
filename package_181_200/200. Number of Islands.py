@@ -32,8 +32,8 @@ class Solution(object):
         :type grid: List[List[str]]
         :rtype: int
         """
-        if not grid or not grid[0]: return 0
-        self.max_x = len(grid) #总共多少行
+        if not grid or not grid[0]: return
+        self.max_x = len(grid) #总共多少行0
         self.max_y = len(grid[0]) #总共多少列
         self.grid = grid
         self.visited = set() #存放访问过的节点坐标

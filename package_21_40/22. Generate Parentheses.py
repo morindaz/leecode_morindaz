@@ -29,11 +29,13 @@ class Solution(object):
 
         if left < n:
             self._gen(left + 1, right, n, result + "(")
+            print("left")
         if left >  right and right < n:
             self._gen(left, right + 1, n, result + ")" )
+            print("right")
 
-solution = Solution().generateParenthesis(5)
-print(solution)
+# solution = Solution().generateParenthesis(5)
+# print(solution)
 
 
 if __name__ == '__main__':

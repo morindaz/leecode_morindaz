@@ -24,11 +24,11 @@ p and q are different and both values will exist in the BST.
 import numpy as np
 
 # Definition for a binary tree node.
-# class TreeNode(object):
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
+class TreeNode(object):
+    def __init__(self, x):
+        self.val = x
+        self.left = None
+        self.right = None
 
 class Solution(object):
     def lowestCommonAncestor(self, root, p, q):
@@ -38,6 +38,64 @@ class Solution(object):
         :type q: TreeNode
         :rtype: TreeNode
         """
+        if(root == None or root ==p or root ==q ):
+            return root
+        left = self.lowestCommonAncestor(root.left, p, q)
+        right = self.lowestCommonAncestor(root.right, p, q)
+        if left == None:
+            return right
+        if right == None:
+            return left
+        return root
+
+    def lowestCommonAncestor2(self, root, p, q):
+        """
+        :type root: TreeNode
+        :type p: TreeNode
+        :type q: TreeNode
+        :rtype: TreeNode
+        """
+        if p.val < root.val > q.val:
+            return self.lowestCommonAncestor(root.left, p, q)
+        if p.val > root.val < q.val:
+            return self.lowestCommonAncestor(root.right, p,q)
+        return root #分叉两边的时候root就是结果
+
+    def lowestCommonAncestor3(self, root, p, q):
+        """
+        :type root: TreeNode
+        :type p: TreeNode
+        :type q: TreeNode
+        :rtype: TreeNode
+        """
+        while root:
+            if p.val < root.val > q.val:
+                root = root.left
+            elif p.val > root.val < q.val:
+                root = root.right
+            else:
+                return root
+
+
 
 if __name__ == '__main__':
-    solution = Solution().lowestCommonAncestor([6,2,8,0,4,7,9,null,null,3,5] , 2, 4)
+    a1 = TreeNode(6)
+    a2 = TreeNode(2)
+    a3 = TreeNode(8)
+    a4 = TreeNode(0)
+    a5 = TreeNode(4)
+    a6 = TreeNode(7)
+    a7 = TreeNode(9)
+    a8 = TreeNode(3)
+    a9 = TreeNode(5)
+    a1.left = a2
+    a1.right = a3
+    a2.left = a4
+    a2.right = a5
+    a3.left = a6
+    a3.right = a7
+    a5.left = a8
+    a5.right = a9
+
+    solution = Solution().lowestCommonAncestor3(a1, a2, a3)
+    print(solution.val)
