@@ -41,3 +41,34 @@ class Solution(object):
         right_min = self.minDepth(root.right)
         result = min(left_min, right_min) + 1
         return result
+
+
+class Solution2(object):
+    def minDepth(self, root):
+        """
+        :type root: TreeNode
+        :rtype: int
+        """
+        if not root:
+            return 0
+        if not root.left:
+            return 1 + self.minDepth(root.right)
+        if not root.right:
+            return 1 + self.minDepth(root.left)
+        left = self.minDepth(root.left) + 1
+        right = self.minDepth(root.right) + 1
+        mini = min(left, right)
+        return mini
+
+if __name__ == '__main__':
+    node1 = TreeNode(3)
+    node2 = TreeNode(9)
+    node3 = TreeNode(20)
+    node4 = TreeNode(15)
+    node5 = TreeNode(7)
+    node1.left = node2
+    node1.right = node3
+    node3.left = node4
+    node4.right = node5
+    solution = Solution().minDepth(node1)
+    print(solution)
