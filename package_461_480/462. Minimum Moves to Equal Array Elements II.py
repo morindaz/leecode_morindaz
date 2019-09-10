@@ -30,7 +30,6 @@ class Solution(object):
         return result
 
 
-
 if __name__ == '__main__':
     solution = Solution().minMoves2([4,2,3])
     print(solution)
