@@ -34,6 +34,16 @@ class Solution(object):
             self._gen(left, right + 1, n, result + ")" )
             print("right")
 
+
+class hanoi(object):
+    def move(self,n, a, b, c):
+        if n == 1:
+            print(a, "->", c)
+            return 0
+        self.move(n-1, a, c, b)
+        self.move(1, a, b, c)
+        self.move(n-1, b, a, c)
+
 # solution = Solution().generateParenthesis(5)
 # print(solution)
 
@@ -41,3 +51,4 @@ class Solution(object):
 if __name__ == '__main__':
     solution = Solution().generateParenthesis(3)
     print(solution)
+    hanoi().move(3, "a", "b", "c")

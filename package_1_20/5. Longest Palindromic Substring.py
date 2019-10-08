@@ -25,6 +25,30 @@ class Solution:
         :type s: str
         :rtype: str
         """
+        if not s:
+            return 0
+        head = 0
+        tail = 0
+        max_str = ""
+        while head  <= len(s):
+            while tail <= len(s):
+
+                tmp_str = s[head: tail]
+                if tmp_str == tmp_str[::-1] and len(tmp_str) > len(max_str):
+                    max_str = tmp_str
+                    tail += 1
+
+            head += 1
+            tail = head + 1
+            return max_str
+
+
+
+    def longestPalindrome2(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
         head = 0
         tail = 0
         max_len = 0
@@ -40,7 +64,7 @@ class Solution:
             tail = head+1
         return max_str
 solution = Solution()
-result = solution.longestPalindrome("babad")
+result = solution.longestPalindrome("cbbc")
 print(result)
 
 '''

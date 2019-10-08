@@ -28,9 +28,26 @@ class Solution(object):
                 break
         return result
 
-solution = Solution()
-result = solution.twoSum([3,2,4],6)
-print(result)
+    def twoSum_0929(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        if not nums:
+            return None
+        result = []
+        for i in range(len(nums)):
+            remain = target - nums[i]
+            if remain in nums and nums.index(remain)!= i:
+                result.extend([i, nums.index(remain)])
+                return result
+
+
+if __name__ == '__main__':
+    solution = Solution()
+    result = solution.twoSum_0929([3,2,4],6)
+    print(result)
 
 '''
 解题思路：

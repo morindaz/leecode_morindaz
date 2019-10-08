@@ -53,7 +53,7 @@ class Solution(object):
 
 
 if __name__ == '__main__':
-    solution = Solution().minDistance("intentions","execution")
+    solution = Solution().minDistance("AV","VA")
     print(solution)
 """
 编辑距离

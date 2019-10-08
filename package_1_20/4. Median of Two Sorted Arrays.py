@@ -18,6 +18,12 @@ The median is (2 + 3)/2 = 2.5
 import math
 class Solution(object):
     def findMedianSortedArrays(self, nums1, nums2):
+        if not nums1 or not nums2:
+            return 0
+
+
+
+    def findMedianSortedArrays2(self, nums1, nums2):
         """
         :type nums1: List[int]
         :type nums2: List[int]
