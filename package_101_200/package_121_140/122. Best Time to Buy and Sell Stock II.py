@@ -24,3 +24,27 @@ Input: [7,6,4,3,1]
 Output: 0
 Explanation: In this case, no transaction is done, i.e. max profit = 0.
 """
+
+
+class Solution(object):
+    def maxProfit(self, prices):
+        """
+        :type prices: List[int]
+        :rtype: int
+        """
+        if not prices:
+            return 0
+        result = [0 for i in range(len(prices))]
+        for idx, price in enumerate(prices):
+            if idx != 0:
+                if prices[idx] > prices[idx -1] :
+                    result[idx] = result[idx -1] + prices[idx] - prices[idx - 1]
+                else:
+                    result[idx] = result[idx -1]
+        return result[-1]
+
+
+
+if __name__ == '__main__':
+    solution = Solution().maxProfit( [7,6,4,3,1])
+    print(solution)

@@ -30,7 +30,7 @@ class Solution(object):
         if left < n:
             self._gen(left + 1, right, n, result + "(")
             print("left")
-        if left >  right and right < n:
+        if left > right and right < n:
             self._gen(left, right + 1, n, result + ")" )
             print("right")
 

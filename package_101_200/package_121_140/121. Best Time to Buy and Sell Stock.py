@@ -20,7 +20,7 @@ Explanation: In this case, no transaction is done, i.e. max profit = 0.
 
 
 class Solution(object):
-    def maxProfit(self, prices):
+    def maxProfit1(self, prices):
         """
         :type prices: List[int]
         :rtype: int
@@ -33,13 +33,24 @@ class Solution(object):
             min_price = min(min_price, prices[price])
         return max_profit
 
+    def maxProfit(self, prices):
+        if not prices:
+            return 0
+        result = [0 for i in range(len(prices))]
+        for idx in range(1, len(prices)):
+            min_value = min(prices[: idx + 1])
+            result[idx] = prices[idx] - min_value
+        return max(result)
+
 
 
 if __name__ == '__main__':
     solution = Solution().maxProfit([7,1,5,3,6,4])
     print(solution)
+    print("This is an demo, try to make it better! Oops there's a huge butterfuly!")
 
 """
 动态规划买卖股票
 121/122/123/309/188/714
+今天早上就可以看到这个更新
 """
