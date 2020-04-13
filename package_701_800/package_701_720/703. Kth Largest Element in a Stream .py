@@ -34,7 +34,7 @@ class KthLargest(object):
         if len(self.nums) < self.k:
             self.nums.append(val)
         else:
-            
+
         if len(self.nums) >= self.k:
             self.heapfy(self.nums, self.k, 0)
             if val > self.nums[0]:
