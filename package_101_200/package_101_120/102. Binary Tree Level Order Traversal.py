@@ -1,9 +1,11 @@
 # Definition for a binary tree node.
-# class TreeNode(object):
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
+class TreeNode(object):
+    def __init__(self, x):
+        self.val = x
+        self.left = None
+        self.right = None
+
+
 import collections
 class Solution(object):
     """
@@ -19,7 +21,7 @@ class Solution(object):
         result = []
         queue = collections.deque()
         queue.append(root)
-        visited = set(root)
+        # visited = set(root)
         while queue:
             level_size = len(queue)
             current_level = []
@@ -49,3 +51,20 @@ class Solution2(object):
         self.result[level].append(node.val)
         self._dfs(node.left, level +1)
         self._dfs(node.right, level +1)
+
+
+if __name__ == '__main__':
+    a = TreeNode(3)
+    b = TreeNode(4)
+    c = TreeNode(5)
+    d = TreeNode(6)
+    e = TreeNode(7)
+    f = TreeNode(8)
+    a.left = b
+    a.right = c
+    b.left = d
+    b.right = e
+    c.left = f
+    solution = Solution()
+    result = solution.levelOrder(a)
+    print(result)

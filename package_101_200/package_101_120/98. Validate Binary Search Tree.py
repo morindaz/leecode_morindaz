@@ -74,6 +74,19 @@ class Solution2(object):
         self.prev = root
         return self.helper(root.right)
 
+class Solution3(object):
+    def isValidBST(self, root):
+        # 采用中序遍历方法，判断是不是和排序后结果一样
+        inorder_result = self.inorder(root)
+        print(inorder_result)
+        return inorder_result == list(sorted(set(inorder_result))) #必须要加set,否则[1,1]这个情况判断错误
+
+    def inorder(self, root):
+        if root is None:
+            return []
+        return self.inorder(root.left) + [root.val] + self.inorder(root.right)
+
+
 if __name__ == '__main__':
     node1 = TreeNode(2)
     node2 =TreeNode(1)
@@ -84,5 +97,5 @@ if __name__ == '__main__':
     node1.right = node3
     node3.left = node4
     node3.right = node5
-    solution = Solution2().isValidBST(node1)
+    solution = Solution3().isValidBST(node1)
     print(solution)

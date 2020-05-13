@@ -44,7 +44,6 @@ class Solution(object):
         return result[-1]
 
 
-
 if __name__ == '__main__':
-    solution = Solution().maxProfit( [7,6,4,3,1])
+    solution = Solution().maxProfit([2,3,1,5,1])
     print(solution)
