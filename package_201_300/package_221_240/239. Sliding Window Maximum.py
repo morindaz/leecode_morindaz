@@ -45,7 +45,7 @@ class Solution(object):
         if not nums: return []
         window, res = [], []
         for i, x in enumerate(nums):
-            if i >=k and window[0] <= i-k:
+            if i >=k and window[0] <= i-k:  # i-k表示左界，如果超出了就不行了
                 window.pop(0) #移除第一个元素
             while window and nums[window[-1]] <= x:
                 window.pop() #如果老臣都比新元素小，都移除出去

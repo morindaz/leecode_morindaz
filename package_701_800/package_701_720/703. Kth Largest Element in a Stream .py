@@ -16,7 +16,6 @@ kthLargest.add(4);   // returns 8
 """
 import heapq
 
-
 class KthLargest(object):
 
     def __init__(self, k, nums):
@@ -28,7 +27,7 @@ class KthLargest(object):
         self.k = k
         self.nums = nums
         heapq.heapify(self.nums) #采用库函数进行排序
-        while(len(self.nums) > k):
+        while len(self.nums) > k:
             heapq.heappop(self.nums) #如果小顶堆的数量超过了k个，就要把小顶堆出堆，让数量正好为K
 
 

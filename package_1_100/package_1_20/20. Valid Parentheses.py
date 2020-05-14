@@ -46,6 +46,18 @@ class Solution(object):
                 return False
         return not stack
 
+
+    def isValid2(self, s):
+        stack = []
+        bracket_dict = {")": "(", "]": "[", "}": "{"}
+        for char in s:
+            if char not in bracket_dict:
+                stack.append(char)
+            elif not stack or bracket_dict[char] != stack.pop(): #还有char的时候栈为空或者char与栈弹出的不一致
+                return False
+        return not stack #如果栈最后还有东西，说明不合法
+
+
 if __name__ == '__main__':
     string = "]"
     solution = Solution()
