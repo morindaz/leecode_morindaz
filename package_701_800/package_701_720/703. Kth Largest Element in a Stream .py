@@ -14,9 +14,38 @@ kthLargest.add(10);  // returns 5
 kthLargest.add(9);   // returns 8
 kthLargest.add(4);   // returns 8
 """
+import heapq
 
 
 class KthLargest(object):
+
+    def __init__(self, k, nums):
+        """
+        初始化堆的过程，让堆的数量正好为K个
+        :type k: int
+        :type nums: List[int]
+        """
+        self.k = k
+        self.nums = nums
+        heapq.heapify(self.nums) #采用库函数进行排序
+        while(len(self.nums) > k):
+            heapq.heappop(self.nums) #如果小顶堆的数量超过了k个，就要把小顶堆出堆，让数量正好为K
+
+
+    def add(self, val):
+        """
+        :type val: int
+        :rtype: int
+        """
+        # 如果堆的数量小于K个，则推入数字
+        if len(self.nums) < self.k:
+            heapq.heappush(self.nums, val)
+        elif val > self.nums[0]:  #如果当前值比堆顶数字要大，那么替换小顶堆的堆顶元素
+            heapq.heapreplace(self.nums, val)
+        return self.nums[0] #返回小顶堆的第一个元素
+
+
+class KthLargest2(object):
 
     def __init__(self, k, nums):
         """
@@ -60,6 +89,7 @@ if __name__ == '__main__':
     k = 3
     nums = [5, -1]
     val = 13
+    # Your KthLargest object will be instantiated and called as such:
     obj = KthLargest(k, nums)
     param_1 = obj.add(2)
     param_2 = obj.add(1)
