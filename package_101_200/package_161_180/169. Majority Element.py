@@ -21,7 +21,7 @@ class Solution(object):
         :rtype: int
         """
         num_set = list(set(nums))
-        num_dict = {key : 0 for key in num_set}
+        num_dict = {key: 0 for key in num_set}
         for num in nums:
             num_dict[num] += 1
         result = sorted(num_dict.items(), key = lambda x:x[1],reverse=True)[0][0]
