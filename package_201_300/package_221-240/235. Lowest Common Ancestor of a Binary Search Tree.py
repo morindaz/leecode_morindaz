@@ -38,7 +38,7 @@ class Solution(object):
         :type q: TreeNode
         :rtype: TreeNode
         """
-        if(root == None or root ==p or root ==q ):
+        if not root or root == p or root == q:
             return root
         left = self.lowestCommonAncestor(root.left, p, q)
         right = self.lowestCommonAncestor(root.right, p, q)
@@ -55,9 +55,9 @@ class Solution(object):
         :type q: TreeNode
         :rtype: TreeNode
         """
-        if p.val < root.val > q.val:
+        if p.val < root.val > q.val: #如果p和q都比root小，都在左子树中
             return self.lowestCommonAncestor(root.left, p, q)
-        if p.val > root.val < q.val:
+        if p.val > root.val < q.val: #如果p和q都比root大，都在右子树中
             return self.lowestCommonAncestor(root.right, p,q)
         return root #分叉两边的时候root就是结果
 

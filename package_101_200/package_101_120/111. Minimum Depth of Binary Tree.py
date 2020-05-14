@@ -46,17 +46,20 @@ class Solution(object):
 class Solution2(object):
     def minDepth(self, root):
         """
+        为什么求最大深度时候不需要这么多判断，而最小深度需要增加额外的判断
         :type root: TreeNode
         :rtype: int
         """
         if not root:
             return 0
-        if not root.left:
+        if not root.left: #如果没有左子树，要找右边的最小情况
             return 1 + self.minDepth(root.right)
-        if not root.right:
+        if not root.right: #如果没有右子树，要找左边的最小情况
             return 1 + self.minDepth(root.left)
+        # 分治方法，求左边最小值以及右边最小值
         left = self.minDepth(root.left) + 1
         right = self.minDepth(root.right) + 1
+        # 需要寻找两边最
         mini = min(left, right)
         return mini
 

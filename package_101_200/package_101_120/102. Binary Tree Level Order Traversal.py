@@ -58,7 +58,7 @@ class Solution(object):
 
 class Solution2(object):
     def levelOrder(self, root):
-        if not  root:
+        if not root:
             return []
         self.result = []
         self._dfs(root, 0)
@@ -87,6 +87,6 @@ if __name__ == '__main__':
     b.left = d
     b.right = e
     c.left = f
-    solution = Solution()
+    solution = Solution2()
     result = solution.levelOrder(a)
     print(result)

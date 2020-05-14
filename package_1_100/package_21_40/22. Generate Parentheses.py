@@ -11,15 +11,13 @@ For example, given n = 3, a solution set is:
   "()()()"
 ]
 """
-
-
 class Solution(object):
     def generateParenthesis(self, n):
         """
         :type n: int
         :rtype: List[str]
         """
-        self.list =  []
+        self.list = []
         self._gen(0, 0, n, "")
         return self.list
     
@@ -31,7 +29,7 @@ class Solution(object):
             self._gen(left + 1, right, n, result + "(")
             print("left")
         if left > right and right < n:
-            self._gen(left, right + 1, n, result + ")" )
+            self._gen(left, right + 1, n, result + ")")
             print("right")
 
 
@@ -43,9 +41,6 @@ class hanoi(object):
         self.move(n-1, a, c, b)
         self.move(1, a, b, c)
         self.move(n-1, b, a, c)
-
-# solution = Solution().generateParenthesis(5)
-# print(solution)
 
 
 if __name__ == '__main__':

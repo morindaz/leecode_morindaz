@@ -40,6 +40,11 @@ class Solution(object):
             return 0
         return 1 + max(self.maxDepth(root.left), self.maxDepth(root.right))
 
+    def maxDepth2(self, root):
+        if not root:
+            return 0
+        return 1 + max(self.maxDepth2(root.left), self.maxDepth2(root.right))
+
 
 
 if __name__ =="__main__":
@@ -52,7 +57,7 @@ if __name__ =="__main__":
     node1.right = node3
     node3.left = node4
     node4.right = node5
-    solution = Solution().maxDepth(node1)
+    solution = Solution().maxDepth2(node1)
     print(solution)
 
 

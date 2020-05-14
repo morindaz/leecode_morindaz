@@ -55,3 +55,8 @@ class Solution(object):
         print(res)
         return res
 
+if __name__ == '__main__':
+    solution = Solution()
+    arr = [1, 3, -1, -3, 5, 3, 6, 7]
+    res = solution.maxSlidingWindow(arr, 3)
+    print(res)
