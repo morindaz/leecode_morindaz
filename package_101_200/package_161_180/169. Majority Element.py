@@ -17,6 +17,7 @@ Output: 2
 class Solution(object):
     def majorityElement(self, nums):
         """
+        采用字典数据结构，类似于哈希表，之后进行排序即可
         :type nums: List[int]
         :rtype: int
         """
@@ -24,10 +25,13 @@ class Solution(object):
         num_dict = {key: 0 for key in num_set}
         for num in nums:
             num_dict[num] += 1
-        result = sorted(num_dict.items(), key = lambda x:x[1],reverse=True)[0][0]
+        result = sorted(num_dict.items(), key=lambda x:x[1], reverse=True)[0][0]
         return result
+
+    def majorityElement2(self, nums):
+        pass
 
 
 if __name__ == '__main__':
-    solution = Solution().majorityElement([2,2,1,1,1,2,2,3])
+    solution = Solution().majorityElement([2, 2, 1, 1, 1, 2, 2, 3])
     print(solution)

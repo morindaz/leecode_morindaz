@@ -33,6 +33,28 @@ class Solution(object):
             result.append(current_level)
         return result
 
+    def levelOrder2(self, root):
+        """
+        采用bfs的方式进行遍历
+        :param root:
+        :return:
+        """
+        if not root:
+            return []
+        result = list()
+        queue = list()
+        queue.append(root)
+        while queue:
+            level_size = len(queue) #记录了当前层的节点个数
+            current_level = list() #记录当前层的节点值
+            for i in range(level_size): #依次遍历当前层的节点
+                node = queue.pop(0) #将当前层的节点从当前层中移除
+                current_level.append(node.val)
+                if node.left: queue.append(node.left) #通过队列的方式，存储当前节点下的子节点，作为下一层遍历
+                if node.right: queue.append(node.right)
+            result.append(current_level)
+        return result
+
 
 class Solution2(object):
     def levelOrder(self, root):
